@@ -1,0 +1,31 @@
+<div class="d-sm-flex align-items-center justify-content-between m-4">
+    <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+    <a href="/admin/add-post" class="d-none d-sm-inline-block btn btn-md btn-dark shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Create new Post</a>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="list-group">
+            <% data.forEach(post => { %>
+            <div class="border border-2 m-2">
+                <a target="_blank" href="/post/<%= post._id %>" class="list-group-item list-group-item-action border-0" aria-current="true">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1"><%= post.title %></h5>
+                        <small><%= post.createdAt.toDateString() %></small>
+                    </div>
+                    <p class="mb-1"><%= post.content %></p>
+                </a>
+                <div class="row m-2">
+                    <div class="col-12 d-flex">
+                        <div class="ms-auto d-flex" role="group" aria-label="Basic mixed styles example">
+                            <a href="/admin/edit-post/<%= post._id %>" class="btn btn-warning mx-1">Update</a>
+                            <form action="/admin/delete-post/<%= post._id %>?_method=DELETE" method="POST">
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <% }) %>
+        </div>
+    </div>
+</div>

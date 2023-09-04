@@ -1,0 +1,23 @@
+<div class="d-sm-flex align-items-center justify-content-between m-4">
+    <h1 class="h3 mb-0 text-gray-800">Create new post</h1>
+    <a href="/admin/" class="d-none d-sm-inline-block btn btn-md btn-dark shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Back Dashboard</a>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="row gx-5 justify-content-start">
+            <div class="col-lg-8 col-xl-6 mt-5 ms-3">
+                <form action="/admin/add-post" method="POST">
+                    <div class="form-floating mb-3">
+                        <input class="form-control" name="title" id="title" type="text" placeholder="Title" autocomplete="off" required />
+                        <label for="name">Title</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <textarea class="form-control" id="content" name="content" type="text" placeholder="Content ..." style="height: 10rem"></textarea>
+                        <label for="content">Content</label>
+                    </div>
+                    <div class="d-grid"><button class="btn btn-primary btn-lg" id="submitButton" type="submit">Create</button></div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,33 @@
+<div class="d-sm-flex align-items-center justify-content-between m-4">
+    <h1 class="h3 mb-0 text-gray-800">Edit new post</h1>
+    <a href="/admin/" class="d-none d-sm-inline-block btn btn-md btn-dark shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Back Dashboard</a>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="row gx-5 justify-content-start">
+            <div class="col-md-6 col-sm-12 mt-5 ms-3">
+                <div class="row">
+                    <div class="col-md-12 d-flex justify-content-between">
+                        <p class="h5"><a target="_blank" class="text-dark" href="/post/<%= post._id %>">Link post : <%= post.title %></a></p>
+                        <form action="/admin/delete-post/<%= post._id %>?_method=DELETE" method="POST">
+                            <button type="submit" class="btn btn-danger">Delete This post ?</button>
+                        </form>
+                    </div>
+                </div>
+                <form action="/admin/edit-post/<%= post._id %>?_method=PUT" method="POST">
+                    <p class="text-primary h5">Created At : <%= post.createdAt.toDateString() %></p>
+                    <p class="text-danger h5">Updated At : <%= post.updateddAt.toDateString() %></p>
+                    <div class="form-floating mb-3">
+                        <input class="form-control" name="title" id="title" value="<%= post.title %>" type="text" placeholder="Title" autocomplete="off" required />
+                        <label for="name">Title</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <textarea class="form-control" id="content" name="content" type="text" placeholder="Content ..." style="height: 10rem"><%= post.content %></textarea>
+                        <label for="content">Content</label>
+                    </div>
+                    <div class="d-grid"><button class="btn btn-warning btn-lg" id="submitButton" type="submit">Edit</button></div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
